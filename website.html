@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        nav {
+            height: 10vh;
+            width: 100%;
+            position: fixed;
+            /* border: 1px solid black; */
+            display: flex;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: white;
+            color: black;
+            z-index: 1;
+        }
+
+        .dropdown {
+            position: relative;
+            border-radius: 3px;
+        }
+
+        .dropdown .btn {
+            font-size: 1rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 0.6rem 1.3rem;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+        #item1:hover {
+            background-color: burlywood;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .left {
+            height: 10vh;
+            /* border: 1px solid black; */
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: 100% 100%;
+            background-image: url('Logo_1.png')
+        }
+
+        .center {
+            height: 10vh;
+            width: 60%;
+            /* border: 1px solid black;// */
+        }
+
+        .center ul {
+            /* border: 1px solid red; */
+            height: 10vh;
+            width: 100%;
+            list-style: none;
+            gap: 1px;
+            font-size: 1 rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center ul li {
+            /* border: 1px solid green; */
+            padding: 10px;
+            border-radius: 10px;
+            transition: all ease .5s;
+
+        }
+
+        .center ul li:hover {
+            background-color: burlywood;
+            color: white;
+            cursor: pointer;
+        }
+
+        .right {
+            height: 10vh;
+            width: 20%;
+
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        #top,
+        #middle,
+        #bottom {
+            height: 100vh;
+            width: 100vw;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            /* background-attachment: fixed; */
+        }
+
+        #top {
+            color: white;
+            background-image: linear-gradient(0deg, rgba(1, 1, 1, 0.3), rgba(1, 1, 1, 0.6)), url('Bg_1.jpg ');
+
+        }
+
+        .info {
+            text-align: center;
+        }
+
+        .intro-heading {
+            padding-top: 8%;
+            text-align: center;
+            font-size: 3.5rem;
+            font-weight: bolder;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .intro-info {
+            margin-top: 1.6rem;
+            font-size: 1.1rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-inline: auto;
+            inline-size: 550px;
+            line-height: 28px;
+        }
+
+        .reservation {
+            display: inline-block;
+            /* margin: auto; */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border: 3px solid burlywood;
+            border-radius: 4px;
+            padding: 15px 0;
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .reservation:hover {
+            background-color: burlywood;
+            color: white;
+            cursor: pointer;
+
+        }
+
+        #middle {
+            margin-top: 30%;
+            background-color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            height: 70vh;
+            padding-left: 3%;
+            color: black;
+        }
+
+        .story {
+            width: 55%;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .story-heading {
+            font-size: 32px;
+            padding: 1rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .color {
+            color: #deb887;
+        }
+
+        .story-subheading {
+            font-size: 1rem;
+            line-height: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .para1 {
+            font-size: 1rem;
+            line-height: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .image {
+            max-height: 300px;
+            max-width: 500px;
+            box-shadow: -10px -10px burlywood;
+
+        }
+
+        .reserv {
+            display: inline-block;
+            /* margin: auto; */
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            border: 3px solid burlywood;
+            border-radius: 4px;
+            padding: 15px 0;
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .reserv:hover {
+            background-color: burlywood;
+            color: white;
+            cursor: pointer;
+        }
+
+        #bottom {
+            height: 19rem;
+            background-image: linear-gradient(0deg, rgba(1, 1, 1, 0.3), rgba(1, 1, 1, 0.6)), url('Bg_3jpg.jpg');
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+            /* z-index: -1; */
+            text-align: center;
+        }
+
+        .head {
+            color: white;
+            font-size: 40px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            padding: 6rem;
+        }
+
+        .subhead {
+            color: white;
+            text-align: center;
+            padding-left: 20rem;
+            font-size: 1.2rem;
+            margin-bottom: 5rem;
+        }
+
+        #menue {
+            text-align: center;
+            padding: 2rem;
+            color: black;
+        }
+
+        .heading {
+            font-size: 2rem;
+            margin: 1rem;
+        }
+
+        .subheading {
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .menueinfo {
+            width: 40%;
+            margin-inline: auto;
+
+        }
+
+
+        .menuedetail {
+            border: 1px solid gray;
+            border-radius: 4px;
+            padding: 0 2.5rem;
+            margin: auto;
+        }
+
+        ul,
+        li {
+            display: flex;
+            text-decoration: none;
+
+        }
+
+        .menueinfo ul li {
+            /* border: 1px solid green; */
+            padding: 10px;
+            border-radius: 10px;
+            transition: all ease .5s;
+            margin: 3%;
+            background-color: rgb(231, 228, 228);
+
+        }
+
+        .menueinfo ul li:hover {
+            background-color: orange;
+            color: white;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+
+            display: grid;
+            grid-template-rows: 30% 30% 30%;
+            grid-template-columns: 25% 25% 25%;
+            grid-gap: 25px;
+            margin-inline-start: 11%;
+            padding: 20px;
+        }
+
+        .child {
+            /* border: 1px solid burlywood; */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .child1 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Drinks_1.jpg');
+            height: 200px;
+            width: 375px;
+        }
+
+        .child2 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Drinks_2.jpg');
+            height: 200px;
+            width: 375px;
+        }
+
+        .child3 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Drinks_3.jpg');
+            height: 200px;
+            width: 375px;
+        }
+
+        .child4 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Lunch1.jpg');
+            background-size: 100% 100%;
+            height: 200px;
+            width: 375px;
+        }
+
+        .child5 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Lunch2.jpg');
+            background-size: 100% 100%;
+            height: 200px;
+            width: 375px;
+        }
+
+        .child6 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Lunch3.jpg');
+            background-size: 100% 100%;
+            height: 200px;
+            width: 375px;
+        }
+
+        .child7 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Dinner_1.jpg');
+            background-size: 100% 100%;
+            height: 200px;
+            width: 375px;
+        }
+
+        .child8 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Dinner_2.jpg');
+            background-size: 100% 100%;
+            height: 200px;
+            width: 375px;
+        }
+
+        .child9 {
+            background-image: linear-gradient(0deg, rgba(237, 197, 149, 0.8), rgba(237, 197, 149, 0.8)), url('Dinner_3.jpg');
+            background-size: 100% 100%;
+            height: 200px;
+            width: 375px;
+        }
+
+        .child img {
+            object-fit: cover;
+        }
+
+        .para {
+            border-bottom: 2px dotted rgba(1, 1, 1, 0.9);
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .img-txt {
+            position: absolute;
+            top: 0.5%;
+            /* transform: translate(-50% -50%); */
+            text-align: center;
+            color: white;
+            /* opacity: 0.5; */
+            /* background-color: rgba(161, 93, 11, 0.973); */
+        }
+
+        .img-txt h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .img-txt p {
+            font-size: 15px;
+        }
+
+        .price {
+            position: relative;
+            text-align: left;
+            margin-left: 15px;
+            margin-bottom: 25%;
+
+
+        }
+
+        .left-bottom-text {
+            position: absolute;
+
+        }
+
+        .gallary {
+            text-align: center;
+        }
+        .gallary1{
+            transition:transform 0.5s ease-in-out
+        }
+        .gallary1:hover{
+            transform: scale(1.1);
+        }
+        .container1 {
+            width: 100vw;
+            height: 60vh;
+            background-color: white;
+            display: grid;
+            grid-template-rows: 40% 40% 40%;
+            grid-template-columns: 26% 26% 26%;
+            grid-gap: 70px;
+            margin-inline-start: 11%;
+            /* padding: 20px; */
+        }
+
+        #customer-section {
+            text-align: center;
+            padding: 2.5rem 2rem 3rem 2rem;
+        }
+
+        .custheading {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        .custsubheading {
+            margin-bottom: 3rem;
+            font-size: 1rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .customer-img {
+            width: 10%;
+            border-radius: 100%;
+            border: 1px solid #e4e4e4;
+            padding: 0.4rem;
+        }
+
+        .customer-name {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+            color: #deb887;
+        }
+
+        .customer-subheading {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .customer-review {
+            font-size: 0.8rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-top: 2rem;
+            line-height: 25px;
+        }
+
+        .contact-info {
+            background-color: burlywood;
+            color: white;
+            margin: auto;
+        }
+
+        .contact {
+            display: inline-block;
+            width: 32%;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .contact-details {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: inline-block;
+            text-align: left;
+            margin: 10px;
+        }
+
+        .footer {
+            display: inline-flex;
+            overflow: hidden;
+            height: 25rem;
+            width: 100%;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url(../images/bg_footer.jpg);
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 3rem;
+        }
+
+        .footer-elements {
+            max-height: 200px;
+            width: 20%;
+            margin: 1rem 2rem;
+            color: white;
+            margin-bottom: 10%;
+
+        }
+
+        .footer-heading {
+            border-bottom: 2px dotted rgba(207, 166, 113, 0.5);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 100;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .footer-description {
+            font-size: 0.8rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: left;
+            line-height: 25px;
+        }
+
+        .email {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: none;
+            font-size: 1rem;
+            line-height: 25px;
+            padding: 0.8rem;
+            width: 100%;
+        }
+
+        .subscribe {
+            background-color: #d0a772;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 0.8rem;
+            line-height: 25px;
+            width: 100%;
+        }
+
+        .subscribe:hover {
+            background-color: black;
+
+        }
+
+        .social {
+            margin-top: 2rem;
+        }
+
+        .social h1 {
+            color: white;
+            font-size: 1.8rem;
+            margin: 0.5rem;
+            text-decoration: none;
+            display: inline-flex;
+
+        }
+
+        .copy-right {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            position: relative;
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+
+
+        </div>
+        <div class="center">
+            <ul>
+                <li>Home</li>
+                <li>Menue</li>
+                <li>About</li>
+                <li>
+                    <div class="dropdown dropdown">
+                        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                            Pages
+                        </button>
+                        <div class="dropdown-menu">
+                            <div id="item1" class="dropdown-item">Reservation</div>
+                            <div id="item1" class="dropdown-item">Staff</div>
+                            <div id="item1" class="dropdown-item">Gallary</div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown dropdup">
+                        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+                            Blog
+                        </button>
+                        <div class="dropdown-menu">
+                            <div id="item1" class="dropdown-item">Blog</div>
+                            <div id="item1" class="dropdown-item">Single Blog</div>
+                        </div>
+                    </div>
+                </li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <div id="top">
+        <div class="info">
+            <h1 class="intro-heading">Welcome To <br> The Food Place</h1>
+            <p class="intro-info">See how your users experience your website in realtime
+                or view trends to see any changes in performance over time.
+            </p>
+            <div class="reservation">
+                <h4>RESERVATION</h4>
+            </div>
+        </div>
+
+
+        <div id="middle">
+            <img class="image" src="Bg_4.jpg" alt="">
+            <div class="story">
+                <h3 class="story-heading">Welcome To <span class="color"> The Food Place</span></h3>
+                <p class="story-subheading">Little Story</p>
+                <p class="para1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum repellat quis quaerat
+                    atque. Praesentium dicta labore veniam, consectetur fugit eveniet omnis voluptatibus laudantium odio
+                    sunt esse, deserunt, quia doloribus? Asperiores pariatur fugiat nemo dicta mollitia aliquam earum
+                    tempore, ab ad nesciunt, soluta libero distinctio beatae nisi? Delectus similique laborum quidem
+                    ratione nulla hic libero. Ut illo quibusdam voluptates excepturi quidem.</p>
+                <div class="reserv">
+                    <h4>RESERVATION</h4>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <div id="bottom">
+            <p class="head">" If you're not the one cooking, stay out of the way and compliment the chef. "
+                <br>
+                <span class="subhead"> - Michael Strahan</span>
+            </p>
+        </div>
+
+        <section id="menue">
+            <h2 class="heading"> Special Menue</h2>
+            <p class="subheading">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error, mollitia!</p>
+            <div class="menueinfo">
+                <ul class="menuedetail">
+                    <li>ALL</li>
+                    <li>DRINKS</li>
+                    <li>LUNCH</li>
+                    <li>DINNER</li>
+                </ul>
+            </div>
+            <br><br>
+            <div class="container">
+                <div class="child">
+                    <div class="child1">
+                        <div class="img-txt">
+                            <h1>Special Drink 1</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child2">
+                        <div class="img-txt">
+                            <h1>Special Drink 2</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child3">
+                        <div class="img-txt">
+                            <h1>Special Drink 3</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child4">
+                        <div class="img-txt">
+                            <h1>Special Lunch 1</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child5">
+                        <div class="img-txt">
+                            <h1>Special Lunch 2</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child6">
+                        <div class="img-txt">
+                            <h1>Special Lunch 3</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child7">
+                        <div class="img-txt">
+                            <h1>Special Dinner 1</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child8">
+                        <div class="img-txt">
+                            <h1>Special Dinner 2</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="child9">
+                        <div class="img-txt">
+                            <h1>Special Dinner 3</h1>
+                            <p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas.
+                            </p>
+                            <div class="price">
+                                <h3 class="left-bottom-text">$7.79</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+            <div class="gallary">
+                <h1 class="menu">Gallary</h1>
+                <p class="menu1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, soluta!</p>
+
+                <br><br>
+                <div class="container1">
+                    <div class="gallary1">
+                        <img src="img1.jpg" alt="" height="200px" width="375px">
+                    </div>
+                    <div class="gallary1">
+                        <img src="img2.jpg" alt="" height="200px" width="375px">
+                    </div>
+                    <div class="gallary1">
+                        <img src="img3.jpg" alt="" height="200px" width="375px">
+                    </div>
+                    <div class="gallary1">
+                        <img src="img4.jpg" alt="" height="200px" width="375px">
+                    </div>
+                    <div class="gallary1">
+                        <img src="img5.jpg" alt="" height="200px" width="375px">
+                    </div>
+                    <div class="gallary1">
+                        <img src="img6.jpg" alt="" height="200px" width="375px">
+                    </div>
+                </div>
+            </div>
+            <section id="customer-section">
+                <h2 class="custheading">Customer Reviews</h2>
+                <p class="custsubheading">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, fugit.</p>
+                <img class="customer-img" src="Profile_1.jpg" alt="">
+                <h2 class="customer-name">Cris Fox</h2>
+                <p class="customer-subheading">CEO at Might Tech.</p>
+                <p class="customer-review">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit esse placeat
+                    vero, itaque expedita eveniet!
+                    <br>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, natus?<br>Lorem ipsum dolor sit
+                    amet.
+                </p>
+            </section>
+            <section class="contact-info">
+                <div class="contact">
+                    <i class="fa-solid fa-square-phone fa-4x"></i>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p>+01 123-456-4590</p>
+                    </div>
+                </div>
+
+                <div class="contact">
+                    <i class="fa-solid fa-envelope fa-4x"></i>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p>youremail@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact">
+                    <i class="fa-solid fa-map-location fa-4x"></i>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <p>800,Lorem Street,US</p>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <section class="footer">
+                    <div class="footer-elements ">
+                        <h3 class="footer-heading">About Us</h3>
+                        <p class="footer-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                            Accusamus vitae debitis voluptatibus repellat nostrum eligendi similique doloremque
+                            obcaecati placeat voluptate error iure, et quasi fugiat laboriosam quam in?
+                        </p>
+                    </div>
+                    <div class="footer-elements ">
+                        <h3 class="footer-heading">opening hours</h3>
+                        <p class="footer-description">Monday:Closed</p>
+                        <p class="footer-description">Tue-Wed:09am-10pm</p>
+                        <p class="footer-description">Thu-Fri:09am-10pm</p>
+                        <p class="footer-description">Sat-Sun:09am-10pm</p>
+                    </div>
+                    <div class="footer-elements ">
+                        <h3 class="footer-heading">contact information</h3>
+                        <p class="footer-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+                        <p class="footer-description">+01 2000 800 9999</p>
+                        <p class="footer-description">info@admin.com</p>
+                    </div>
+                    <div class="footer-elements">
+                        <h3 class="footer-heading">Subscribe</h3>
+                        <input class="email" type="email" placeholder="Email Address">
+                        <br>
+                        <button class="subscribe" type="submit">Subscribe</button>
+                        <div class="social">
+                            <h1>
+                                <i class="fa-brands fa-facebook"></i>
+                            </h1>
+                            <h1>
+                                <i class="fa-brands fa-instagram"></i>
+                            </h1>
+                            <h1>
+                                <i class="fa-brands fa-twitter"></i>
+                            </h1>
+                            <h1>
+                                <i class="fa-brands fa-linkedin"></i>
+                            </h1>
+                            <h1>
+                                <i class="fa-brands fa-google-plus-g"></i>
+                            </h1>
+                        </div>
+                    </div>
+                </section>
+                <div class="copy-right">
+                    <p>All Rights Reserved.@ 2024 The Food Place</p>
+                </div>
+            </footer>
+            <script src="https://kit.fontawesome.com/05b533ac7f.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
